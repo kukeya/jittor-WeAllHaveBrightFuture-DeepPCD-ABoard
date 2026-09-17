@@ -9,9 +9,9 @@ not import PyTorch, TensorFlow, PaddlePaddle, MindSpore, or JittorGeometric.
 The archived A-leaderboard submission obtained `score=81.05`, `CD_score=69.86`,
 and `P2S_score=92.25`. These are online leaderboard results, not a promise that
 a new training run will reproduce the same score exactly: the submitted result
-uses three private training checkpoints and two-stage prediction fusion. Those
-checkpoints, all datasets, caches, logs, predictions, and submission outputs are
-intentionally excluded from this repository.
+uses three released inference checkpoints and two-stage prediction fusion. The
+required checkpoints are in `checkpoints/`; datasets, caches, logs,
+predictions, and submission outputs are intentionally excluded.
 
 ## Repository layout
 
@@ -21,6 +21,7 @@ intentionally excluded from this repository.
 - `scripts/`: command-line entry points.
 - `data/`: data-layout documentation only; raw data and generated caches are
   ignored.
+- `checkpoints/`: the three checkpoints used by the archived inference recipe.
 - `environment.yaml`: reproducible Conda environment definition.
 
 ## Environment
@@ -105,7 +106,7 @@ checkpoint's expected configuration digest is supplied.
 ```bash
 python scripts/denoise.py \
   --config configs/train/pgd_all15833_starter_laplace_condgate_huber75_d010_e34_seed20260726.yaml \
-  --checkpoint /work/runs/control/checkpoints/step_00053856.pkl \
+  --checkpoint checkpoints/control_e34_step_00053856.pkl \
   --input-dir data/prepared/test --output-dir /work/pred/control_e34 \
   --patch-size 1000 --seed-k 6.0 --patch-batch-size 20 \
   --niters 1 --normalization-mode noisy_max \
@@ -139,14 +140,20 @@ python scripts/validate_submission.py \
 `patch_batch_size=20` was used on an RTX 4090 and changes throughput only; lower
 it if GPU memory is insufficient.
 
+Verify the released weights before inference:
+
+```bash
+sha256sum -c checkpoints/SHA256SUMS
+```
+
 ## Metrics and result scope
 
 The competition score is the equally weighted aggregate of CD and P2S scores.
 CD measures set-level geometric coverage, while P2S measures the distance from
 predicted points to the clean triangle surface. Output point count and order
 must match each noisy input. This repository includes the generation and
-submission-format validation path, but it deliberately excludes the private
-checkpoints and the official dataset; therefore it cannot independently
+submission-format validation path and the three inference checkpoints, but it
+deliberately excludes the official dataset; therefore it cannot independently
 recreate the reported online `81.05/69.86/92.25` result out of the box.
 
 ## Third-party notice

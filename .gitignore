@@ -37,3 +37,8 @@ artifacts/
 # Temporary files
 *.tmp
 *.swp
+
+# Public inference checkpoints required by README.md
+!checkpoints/
+!checkpoints/*.pkl
+!checkpoints/SHA256SUMS
