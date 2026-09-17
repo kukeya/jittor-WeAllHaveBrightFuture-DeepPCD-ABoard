@@ -1,0 +1,14 @@
+NCPGD-E third-party notice
+============================
+
+This repository's point-cloud denoising architecture and source profile are
+based on the following project:
+
+  Guo et al., "Guiding Point Cloud Denoising with Learned Structural Priors"
+  https://github.com/git-guocc/PGD
+  source revision: b5dc8be352203cfb2a417be6d0e3e9a0cb1f196f
+  license: MIT
+
+The released NCPGD-E implementation is a Jittor adaptation for the Sixth CG
+Graphics AI Challenge. It contains no PGD pretrained weights, no official
+competition dataset, and no third-party source tree.

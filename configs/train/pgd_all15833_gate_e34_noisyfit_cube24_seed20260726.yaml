@@ -1,0 +1,47 @@
+format: pcdenoise_pgd_train_v2
+
+model:
+  patch_size: 1000
+  feature_dims: [32, 48, 72, 108, 162]
+  codebook_sizes: [512, 384, 256, 192]
+  temperature: 0.1
+  ema_momentum: 0.99
+  displacement_scale: 0.1
+  noise_conditioning: true
+  pointwise_displacement_gate: true
+
+data:
+  train_cache: data/train_cache/surface50000_seed20260726_n15833_v1
+  verify_cache: true
+  mesh_root: data/prepared/train/dataset_train/shapenet
+  train_split: data/splits/all_15833_seed20260726_v1/train.json
+  expected_train_split_sha256: 392d571090a51514efa0deb3b282de72ed2ca71764d810699ead7e4b2a6f6eff
+  expected_split_manifest_sha256: 4e159e6aa1a68b396e60aabeac960f52eeb6667e9a6973250a53797b8a79368a
+  expected_content_sha256: 387bf8494f1e3f934e6711dd414393cd0a3d8c4233b6022a7eb816c3c0705504
+  noise_profile: starter_laplace
+  noise_min: 0.005
+  noise_max: 0.020
+  rotate: true
+  rotation_mode: cube24
+  normalization_mode: noisy_max
+  conditioning_noise_min: 0.003
+  conditioning_noise_max: 0.025
+
+training:
+  seed: 20260726
+  sampler: epoch_without_replacement_v1
+  max_epochs: 34
+  batch_size: 10
+  prefetch_batches: 4
+  learning_rate: 0.0005
+  learning_rate_schedule: constant
+  loss_profile: code_b5dc8be
+  reconstruction_weight: 1.0
+  point_mse_weight: 0.0
+  noise_scale_estimation_weight: 1.0
+  correspondence_huber_weight: 75.0
+  correspondence_huber_delta: 0.005
+  log_every: 100
+  visualize_every: 792
+  checkpoint_every: 1584
+  use_cuda: true

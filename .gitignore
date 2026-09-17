@@ -1,0 +1,39 @@
+# Python and editor state
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.DS_Store
+.idea/
+.vscode/
+
+# Local environments and Jittor build cache
+.env
+.venv/
+venv/
+jittor_home/
+
+# Datasets, generated caches, runs, and submissions
+data/prepared/
+data/splits/
+data/train_cache/
+outputs/
+runs/
+predictions/
+submissions/
+artifacts/
+*.log
+*.pkl
+*.pt
+*.pth
+*.ckpt
+*.npz
+*.npy
+*.zip
+*.tar
+*.tar.gz
+
+# Temporary files
+*.tmp
+*.swp
