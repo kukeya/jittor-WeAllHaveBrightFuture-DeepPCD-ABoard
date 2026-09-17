@@ -1,5 +1,5 @@
-NCPGD-E third-party notice
-============================
+Third-party notice
+==================
 
 This repository's point-cloud denoising architecture and source profile are
 based on the following project:
@@ -9,6 +9,6 @@ based on the following project:
   source revision: b5dc8be352203cfb2a417be6d0e3e9a0cb1f196f
   license: MIT
 
-The released NCPGD-E implementation is a Jittor adaptation for the Sixth CG
-Graphics AI Challenge. It contains no PGD pretrained weights, no official
-competition dataset, and no third-party source tree.
+This implementation is a Jittor adaptation for the Sixth CG Graphics AI
+Challenge. It contains no PGD pretrained weights, no official competition
+dataset, and no third-party source tree.

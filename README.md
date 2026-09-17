@@ -1,10 +1,9 @@
-# NCPGD-E: Noise-Conditioned Point-Cloud Denoising
+# 基于深度学习的三维点云降噪任务：方法设计与实现
 
-NCPGD-E is the pure-Jittor point-cloud denoising solution submitted by team
-"我们都有光明的未来" to Track 2 of the Sixth CG Graphics AI Challenge. It uses a
-four-level Point U-Net, noise-conditioned structural priors, point-wise
-displacement gates, and overlap-aware patch fusion. The implementation does
-not import PyTorch, TensorFlow, PaddlePaddle, MindSpore, or JittorGeometric.
+*Method Design and Implementation for Deep Learning-Based 3D Point Cloud Denoising*
+
+This repository contains the A-stage point-cloud denoising solution submitted
+by team "我们都有光明的未来" to Track 2 of the Sixth CG Graphics AI Challenge.
 
 The archived A-leaderboard submission obtained `score=81.05`, `CD_score=69.86`,
 and `P2S_score=92.25`. These are online leaderboard results, not a promise that
